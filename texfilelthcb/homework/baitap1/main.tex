@@ -1,0 +1,205 @@
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+
+\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,bbold}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics,cancel}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{Bài tập 1}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+Giải:\\
+Cho:
+\begin{align*}
+	\begin{cases}
+		\phi(\vec{x}) & = \displaystyle \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \dfrac{1}{\sqrt{2\omega_{\vec{k}}}}\left[ a_{\vec{k}}e^\alpha + a_{\vec{k}}^\dagger e^{-\alpha} \right]     \\
+		\pi(\vec{x})  & = (-i)\displaystyle \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \sqrt{\dfrac{\omega_{\vec{k}}}{2}} \left[ a_{\vec{k}}e^\alpha + a_{\vec{k}}^\dagger e^{-\alpha} \right] \\
+	\end{cases}
+\end{align*}
+trong đó $\alpha = -i\omega_{\vec{k}} t + i\vec{k}\cdot\vec{x}$.
+
+Phép biến đổi Fourier 4D cho $\phi(\vec{x})$ và $\pi(\vec{x})$:
+\begin{align*}
+	\ast\int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} & = \int d^3x \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \dfrac{1}{\sqrt{2\omega_{\vec{k}}}}\left[ a_{\vec{k}}e^\alpha + a_{\vec{k}}^\dagger e^{-\alpha} \right] e^{i\vec{k'}\cdot\vec{x}}                                                                                                        \\
+	                                                      & = \int d^3x \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \dfrac{1}{\sqrt{2\omega_{\vec{k}}}} \left[ a_{\vec{k}}e^\alpha e^{i\vec{k'}\cdot\vec{x}}  + a_{\vec{k}}^\dagger e^{-\alpha}e^{i\vec{k'}\cdot\vec{x}} \right]                                                                             \\
+	                                                      & = \int d^3x \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \dfrac{1}{\sqrt{2\omega_{\vec{k}}}} \left[ a_{\vec{k}}e^{ -i\omega_{\vec{k}} t + i\vec{k}\cdot\vec{x}} e^{i\vec{k'}\cdot\vec{x}}  + a_{\vec{k}}^\dagger e^{ i\omega_{\vec{k}} t - i\vec{k}\cdot\vec{x}}e^{i\vec{k'}\cdot\vec{x}} \right] \\
+	                                                      & = (2\pi)^3 \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \dfrac{1}{\sqrt{2\omega_{\vec{k}}}} \left[ a_{\vec{k}}e^{-i\omega_{\vec{k}}t} \delta(\vec{k}+\vec{k'}) + a_{\vec{k}}^\dagger e^{i\omega_{\vec{k}}t}\delta(\vec{k'}-\vec{k}) \right],
+\end{align*}
+do $\displaystyle \int d^3x e^{i(\vec{k'}+\vec{k})\cdot x} = (2\pi)^3\delta(\vec{k}+\vec{k'})$ và $\displaystyle \int d^3x e^{i(\vec{k'}-\vec{k})\cdot x} = (2\pi)^3\delta(\vec{k}-\vec{k'})$
+\begin{align}
+	&\Rightarrow \int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}}
+	  = \dfrac{(2\pi)^{\frac{3}{2}}}{\sqrt{2\omega_{\vec{k'}}}}\left[ a_{-\vec{k'}}e^{-i\omega_{\vec{k'}}t} + a_{\vec{k'}}^{\dagger}e^{i\omega_{\vec{-k'}}t} \right]
+	= \dfrac{(2\pi)^{\frac{3}{2}}}{\sqrt{2\omega_{\vec{q}}}}\left[ a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} + a_{\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t} \right]  \nonumber \\
+	&\Rightarrow \dfrac{\sqrt{2\omega_{\vec{q}}}}{(2\pi)^{\frac{3}{2}}} \int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}}
+	  = \left[ -a_{\vec{q}}\,e^{-i\omega_{\vec{q}}t} + a_{\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t} \right] \label{eq1}
+\end{align}
+
+\begin{align*}
+	\ast\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} & = \int d^3x (-i)\int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \sqrt{\dfrac{\omega_{\vec{k}}}{2}} \left[ a_{\vec{k}}e^\alpha - a_{\vec{k}}^\dagger e^{-\alpha} \right] e^{i\vec{k'}\cdot\vec{x}}                                                                                                       \\
+	                                                     & = \int d^3x (-i)\int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \sqrt{\dfrac{\omega_{\vec{k}}}{2}} \left[ a_{\vec{k}}e^\alpha e^{i\vec{k'}\cdot\vec{x}}  - a_{\vec{k}}^\dagger e^{-\alpha}e^{i\vec{k'}\cdot\vec{x}} \right]                                                                             \\
+	                                                     & = (-i)\int d^3x \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \sqrt{\dfrac{\omega_{\vec{k}}}{2}} \left[ a_{\vec{k}}e^{ -i\omega_{\vec{k}} t + i\vec{k}\cdot\vec{x}} e^{i\vec{k'}\cdot\vec{x}}  - a_{\vec{k}}^\dagger e^{ i\omega_{\vec{k}} t - i\vec{k}\cdot\vec{x}}e^{i\vec{k'}\cdot\vec{x}} \right] \\
+	                                                     & = -i(2\pi)^3 \int \dfrac{d^3\vec{k}}{(2\pi)^{3/2}} \sqrt{\dfrac{\omega_{\vec{k}}}{2}} \left[ a_{\vec{k}}e^{-i\omega_{\vec{k}}t} \delta(\vec{k}+\vec{k'}) - a_{\vec{k}}^\dagger e^{i\omega_{\vec{k}}t}\delta(\vec{k'}-\vec{k}) \right],
+\end{align*}
+do $\displaystyle \int d^3x e^{i(\vec{k'}+\vec{k})\cdot x} = (2\pi)^3\delta(\vec{k}+\vec{k'})$ và $\displaystyle \int d^3x e^{i(\vec{k'}-\vec{k})\cdot x} = (2\pi)^3\delta(\vec{k}-\vec{k'})$
+\begin{align}
+	&\Rightarrow\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}}
+	  = -i(2\pi)^{\frac{3}{2}}\sqrt{\dfrac{\omega_{\vec{k}}}{2}}\left[ a_{-\vec{k'}}e^{-i\omega_{\vec{k'}}t} - a_{\vec{k'}}^{\dagger}e^{i\omega_{\vec{-k'}}t} \right]\nonumber\\
+	&=-i(2\pi)^{\frac{3}{2}}\sqrt{\dfrac{\omega_{\vec{q}}}{2}}\left[ a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} - a_{-\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t} \right]\nonumber \\
+	 &\Rightarrow i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\dfrac{1}{(2\pi)^\frac{3}{2}}\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}}
+	  = \left[ a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} - a_{\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t} \right] \label{eq2}
+\end{align}
+Từ \hyperref[eq1]{(1)} và \hyperref[eq2]{(2)}:
+\begin{align*}
+	\begin{cases}
+		 a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} + a_{\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t} = \dfrac{\sqrt{2\omega_{\vec{q}}}}{(2\pi)^{\frac{3}{2}}} \displaystyle \int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}},\\
+	a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} - a_{\vec{q}}^{\dagger}\,e^{i\omega_{-\vec{q}}t}  = i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\dfrac{1}{(2\pi)^\frac{3}{2}} \displaystyle\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}},
+	\end{cases}
+\end{align*}
+lấy \hyperref[eq1]{(1)} + \hyperref[eq2]{(2)}:
+\begin{align}
+	 2 a_{-\vec{q}}\,e^{-i\omega_{\vec{q}}t} 
+	 &= \dfrac{\sqrt{2\omega_{\vec{q}}}}{(2\pi)^{\frac{3}{2}}} \displaystyle \int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} + i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\dfrac{1}{(2\pi)^\frac{3}{2}} \displaystyle\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} \nonumber \\
+	 \Rightarrow  a_{-\vec{q}} &= \dfrac{1}{2(2\pi)^\frac{3}{2}}  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) + i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{i\vec{k'}\cdot\vec{x}} e^{i\omega_{\vec{q}}t}, \label{eq3} 
+\end{align}
+lấy \hyperref[eq1]{(1)} - \hyperref[eq2]{(2)}:
+\begin{align}
+	2 a_{-\vec{q}}\,e^{i\omega_{\vec{q}}t} 
+	&= \dfrac{\sqrt{2\omega_{\vec{q}}}}{(2\pi)^{\frac{3}{2}}} \displaystyle \int d^3x \phi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} - i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\dfrac{1}{(2\pi)^\frac{3}{2}} \displaystyle\int d^3x \pi(\vec{x}) e^{i\vec{k'}\cdot\vec{x}} \nonumber \\
+	\Rightarrow  a_{-\vec{q}}^{\dagger} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) - i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{i\vec{k'}\cdot\vec{x}} e^{-i\omega_{\vec{q}}t}, \label{eq4} 
+\end{align}
+từ \hyperref[eq3]{(3)} và \hyperref[eq4]{(4)}:
+\begin{equation}
+	\begin{cases}
+		\begin{aligned}
+			a_{\vec{q}}^{\dagger} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) + i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{i\vec{k'}\cdot\vec{x}} e^{i\omega_{\vec{q}}t}\\
+			a_{\vec{q}}^{\dagger} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) - i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{i\vec{k'}\cdot\vec{x}} e^{-i\omega_{\vec{q}}t}
+		\end{aligned}
+	\end{cases}\nonumber
+\end{equation}
+thay $k'=-k'$ cho \hyperref[eq3]{(3)}
+\begin{equation}
+	\Rightarrow
+	\begin{cases}
+		\begin{aligned}
+			a_{\vec{q}} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) + i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{i(\omega_{\vec{q}}t - \vec{k'}\cdot\vec{x})}\\
+			a_{\vec{q}}^{\dagger} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{q}}}\,\phi(\vec{x}) - i\sqrt{\dfrac{2}{\omega_{\vec{q}}}}\,\pi(\vec{x})\right] e^{-i(\omega_{\vec{q}}t - \vec{k'}\cdot\vec{x})}
+		\end{aligned}
+	\end{cases}\nonumber
+\end{equation}
+
+$\ast$ Tính các giao hoán tử:
+\begin{align*}
+	\left[	a_{-\vec{q}} \,, a_{\vec{q}}^{\dagger}\right] &= a_{-\vec{q}}\, a_{\vec{q}}^{\dagger} - a_{\vec{q}}^{\dagger}\, a_{-\vec{q}}
+\end{align*}
+Để thuận tiện trong việc đọc các kí hiệu, thì ta sẽ thay đổi một số dummy variables:
+\begin{align*}
+	a_{\vec{k}} &= \dfrac{1}{2(2\pi)^\frac{3}{2} }  \displaystyle \int d^3x \left[\sqrt{2\omega_{\vec{k}}}\,\phi(\vec{x}) + i\sqrt{\dfrac{2}{\omega_{\vec{k}}}}\,\pi(\vec{x})\right] e^{i(\omega_{\vec{k}}t - \vec{k}\cdot\vec{x})}\;\text{thay $-q = k$ và $k' = k$},
+\end{align*}
+và ``tạm'' bỏ đi các kí hiệu vector. Giao hoán tử sẽ trở thành:
+\begin{align*}
+	\left[	a_{\vec{k}} \,, a_{\vec{q}}^{\dagger}\right] 
+	&= a_{\vec{k}}\, a_{\vec{q}}^{\dagger} - a_{\vec{q}}^{\dagger}\, a_{\vec{k}}\\
+	&= \dfrac{1}{2} \int \dfrac{d^3xd^3y}{(2\pi^3)}\dfrac{e^{i(\omega_k - \omega_q)t} e^{-i(k\cdot x - q\cdot y)}}{\sqrt{\omega_k\omega_q}}  \\
+	&\times \biggl[ \omega_k \omega_q \phi(x)\phi(y) - i\omega_k\phi(x)\pi(y) + i\omega_q\pi(x)\phi(y) + \pi(x)\pi(y) \\
+	&- \omega_k \omega_q\phi(y)\phi(x) + i\omega_k\pi(y)\phi(x) - i\omega_q\phi(y)\pi(x) - \pi(y)\pi(x) \biggr]\\
+	& = \dfrac{1}{2} \int \dfrac{d^3xd^3y}{(2\pi^3)}\dfrac{e^{i(\omega_k - \omega_q)t} e^{-i(k\cdot x - q\cdot y)}}{\sqrt{\omega_k\omega_q}}\biggl\{ \omega_k\omega_q\left[ \phi(x),\phi(y) \right] - i\omega_k\left[\phi(x),\pi(y)\right]\\
+	&- i\omega_q\left[\phi(y),\pi(x)\right] + \left[ \pi(x),\pi(y) \right] \biggr\}\\
+	& = \dfrac{1}{2} \int \dfrac{d^3xd^3y}{(2\pi^3)}\dfrac{e^{i(\omega_k - \omega_q)t} e^{-i(k\cdot x - q\cdot y)}}{\sqrt{\omega_k\omega_q}}\biggl\{ \cancel{\omega_k\omega_q\left[ \phi(x),\phi(y) \right]} - i\omega_k\left[\phi(x),\pi(y)\right]\\
+	&- i\omega_q\left[\phi(y),\pi(x)\right] + \cancel{\left[ \pi(x),\pi(y) \right] \biggr\}}
+\end{align*}
+số hạng thứ 1 và số hạng thứ 4 bị biến mất là do $\left[A(x),A(y)\right] = 0$, nên:
+\begin{align*}
+	& = \dfrac{1}{2} \int \dfrac{d^3xd^3y}{(2\pi^3)}\dfrac{e^{i(\omega_k - \omega_q)t} e^{-i(k\cdot x - q\cdot y)}}{\sqrt{\omega_k\omega_q}} (-i)\left[\omega_k i \delta(x-y) + \omega_q i \delta(y-x)  \right] \\ 
+	&= 	\dfrac{e^{i(\omega_k - \omega_q)t}}{2(2\pi)^3} \dfrac{\omega_k + \omega_q}{\sqrt{\omega_k\omega_q}} \int d^3x e^{i(q-k)x}\\
+	&= 	\dfrac{e^{i(\omega_k - \omega_q)t}}{2(2\pi)^3} \dfrac{\omega_k + \omega_q}{\sqrt{\omega_k\omega_q}} (2\pi)^3 \delta(q-k)\\
+	&= f(k,q)\delta(q-k ) = \delta(q-k) \; \text{do khi $k=q$ thì $f(k,q) \rightarrow 1$ }
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

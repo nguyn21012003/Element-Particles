@@ -1,0 +1,279 @@
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+%\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,bbold}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{Lý thuyết hạt cơ bản}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\Huge\bfseries} % Định dạng của tiêu đề
+  {\S\ \thechapter}            % Ký hiệu và số chương
+  {1em}                        % Khoảng cách giữa số chương và tiêu đề
+  {}                           % Nội dung tiêu đề
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+
+\clearpage
+
+\chapter*{\S\quad Giới thiệu}
+Note ngày 13/09, tuần 1
+
+1. Trong thực nghiệm: Phổ các hạt cơ bản: (m(khối lượng), spin ,...), tương tác hạt cơ bản.
+
+2. Trong lý thuyết: \\
+QM $\rightarrow$ QFT:
+\begin{itemize}
+	\item Gauge symmetry $\rightarrow$ $\underset{U(1)}{QED}$, $\underset{SU(3)}{QCD}$
+	\item Lý thuyết hiệu dụng $\rightarrow$ $\underset{\text{LT tương tác yếu}}{\text{Lý thuyết Fermi}}$
+\end{itemize}
+
+1+2 $\rightarrow$ Sử dụng lý thuyết nhóm để gộp chung lại thành một nhóm \\
+$\rightarrow SU(3) \bigotimes SU(2) \bigotimes U(1) \rightarrow$ Mô hình chuẩn (Standard Model) + Cơ chế Higgs
+
+\textbf{Beyond SM}
+\begin{enumerate}
+	\item Cơ chế Higgs mở rộng
+	\item Tại sao lại dùng nhóm $\rightarrow SU(3) \bigotimes SU(2) \bigotimes U(1)$
+	\item Có thể dùng $SU(5) \equiv GUT$ hoặc $\rightarrow SU(2) \bigotimes SU(2) \bigotimes U(1)\rightarrow$ có thể tìm ra hạt mới
+\end{enumerate}
+\chapter*{\S\quad Review QFT}
+\section*{Notations}
+\begin{align*}
+	\hbar                                       & = c = 1                      \\
+	S^2                                         & = t^2 - \overrightarrow{r}^2 \\
+	\overrightarrow{r}^2 = \overrightarrow{x}^2 & = x^2 +y^2 +z^2              \\
+\end{align*}
+Vector 4 chiều
+\begin{align*}
+	x^{\mu} =(t,\overrightarrow{x}) = (t,\overrightarrow{x}_1,\overrightarrow{x}_2,\overrightarrow{x}_3)
+\end{align*}
+trong đó $\mu=0,1,2,3 \rightarrow$ chỉ số Lorentz
+\begin{align*}
+	x^{\mu} =(t,-\overrightarrow{x}) = (t,-\overrightarrow{x}_1,-\overrightarrow{x}_2,-\overrightarrow{x}_3)
+\end{align*}
+\begin{align*}
+	S^2 & = x^\mu x_\mu=  x_\mu  x^\mu = t^2 - \overrightarrow{x}^2 \\
+	S^2 & = t^2 - x^1 x_1 - x^2 x_2 - x^3 x_3
+\end{align*}
+
+\clearpage
+
+\noindent \textbf{Tensor metric}
+\begin{align*}
+	g_{\mu\nu} & = g^{\mu\nu}
+	=
+	\renewcommand{\arraystretch}{0.55}
+	\begin{pmatrix}
+		1 & 0  & 0  & 0  \\
+		0 & -1 & 0  & 0  \\
+		0 & 0  & -1 & 0  \\
+		0 & 0  & 0  & -1
+	\end{pmatrix}                                                                   \\
+	           & = S^2 = g^{\rho\sigma}x_{\rho} x_{\sigma} = g^{\mu\nu}x^{\mu} x_{\nu}
+\end{align*}
+\textbf{Nâng hạ chỉ số Lorentz}
+\begin{itemize}
+	\item $x_\mu= g_{\mu\nu}x^{\nu}$
+	\item $x^\mu= g^{\mu\nu}x_{\nu}$
+\end{itemize}
+\textbf{Đạo hàm}
+\begin{itemize}
+	\item $\partial_\mu = \dfrac{\partial}{\partial x^\mu} = \left( \dfrac{\partial}{\partial t} ; \dfrac{\partial}{\partial x}; \dfrac{\partial}{\partial y}; \dfrac{\partial}{\partial z}   \right)$
+	\item $\partial^\mu = \dfrac{\partial}{\partial x_\mu} = \left( \dfrac{\partial}{\partial t} ; -\dfrac{\partial}{\partial x}; -\dfrac{\partial}{\partial y}; -\dfrac{\partial}{\partial z}   \right)$
+	\item $\grad = \left( \dfrac{\partial}{\partial x}; \dfrac{\partial}{\partial y}; \dfrac{\partial}{\partial z}   \right)$
+	\item $\Box = \partial^\mu \partial_\mu = \partial_\mu \partial^\mu = \dfrac{\partial^2}{\partial t^2} - \grad^2$
+\end{itemize}
+\textbf{Không gian xung lượng}
+\begin{itemize}
+	\item $P^\mu = (E;\overrightarrow{P}) = (E; P_x;P_y;P_z)$
+	\item $P^\mu = (E;-\overrightarrow{P}) $
+	\item $P^\mu P_\mu =E^2 - \abs{\overrightarrow{P}}^2 = m^2 $\\
+	      $\Rightarrow E = \sqrt{\abs{\overrightarrow{P}}^2 - m}$
+	\item $a^\mu= (a^0;\overrightarrow{a})$
+	\item $b_\mu= (b_0;-\overrightarrow{b})$
+\end{itemize}
+
+\clearpage
+
+Bài tập: $A^2 = a^\mu a_\mu $. Tính $\dfrac{\partial A^2}{\partial a_\mu}; \dfrac{\partial A^2}{\partial a^\mu}$
+
+\begin{align*}
+	\dfrac{\partial A^2}{\partial a_\mu} & = \dfrac{\partial}{\partial a_\mu}(a^\rho a^\rho) = \dfrac{\partial}{\partial a_\mu}(g^{\rho \sigma}a_\sigma a_\rho)                                        \\
+	                                     & = g^{\rho \sigma} \left[ \left(\dfrac{\partial}{\partial a_\mu}a_\sigma\right)a_\rho + a_\sigma \left(\dfrac{\partial}{\partial a_\mu}a_\rho\right) \right] \\
+	                                     & = g^{\rho \sigma}\delta_{\mu\sigma}a_{\rho} + g^{\rho\sigma}a_{\sigma}\delta_{\mu,\rho}                                                                     \\
+	                                     & = g^{\rho}a_{\rho} + g^{\mu\sigma}a_{\sigma} = 2 a^{\mu}
+\end{align*}
+\section*{QM $\rightarrow$ QFT}
+\noindent\textbf{Review QM(không tương đối tính)}\\
+Trong cơ học cổ điển của Newton:\\
+Năng lượng được tính theo công thức:(Mô hình QN; v$\ll$C)\\
+$E = \dfrac{p^2}{2m} + V(\vec{\mathbf{r}}) \overset{\text{Vi mô $\equiv$ QM}}{\longrightarrow} i\hbar\dfrac{\partial\Psi}{\partial t} = (-\dfrac{\hbar^2}{2m}\vec{\nabla}^2 +  V(\vec{\mathbf{r}}))\Psi (\ast) $ \\
+(Mô hình QN; v$\cong$C):\\
+$E^2 = m^2 + p^2 \overset{\text{Vi mô $\equiv$ QM}}{\longrightarrow} -\dfrac{\partial^2}{\partial t^2}\Phi = (m^2 - \vec{\nabla}^2)\Phi \Rightarrow (\square + m^2)\Phi = 0 (\ast\ast) $ \\
+
+Bài tập 2: Từ phương trình ($\ast$) và ($\ast\ast$) cho $\phi(x)$ và $\phi^\ast (x)$. Thiết lập phương trình liên tục:
+\begin{align*}
+	\dfrac{\partial \rho}{\partial t} + \div\vec{J} = 0
+\end{align*}
+\newpage
+
+Note ngày 20/09, tuần 2
+
+\section*{Trường vô hướng}
+Để $\phi(x)$ là hàm vô hướng thực, thì:
+\begin{itemize}
+	\item Tương đối tính: Lagrange bất biến dưới phép biến đổi Lorentz
+	      \begin{align*}
+		      x^\mu \rightarrow (x^\mu)' =\Lambda_\nu^\mu x^{\nu}
+	      \end{align*}
+	\item Hàm trường tổng quát:
+	      \begin{align*}
+		      \Phi(x) \xrightarrow{L(\Lambda)}\Phi'_a(x') = M_{ab}(\Lambda)\Phi(x)
+	      \end{align*}
+\end{itemize}
+trong đó:
+\begin{align*}
+	M_{ab}(\Lambda) =
+	\begin{cases*}
+		I \rightarrow \text{trường vô hướng (s = 0)}\rightarrow \text{vô hướng Lorentz}          \\
+		e^{\frac{1}{4}\sum_{}^{\mu\nu}}w_{\mu\nu}\rightarrow \text{trường spinor}(s=\frac{1}{2}) \\
+		\Lambda_\nu^\mu \rightarrow \text{trường vector}(s=1)
+	\end{cases*}
+\end{align*}
+Tất cả điều trên vẫn là đang ở trường cổ điển.
+
+\textbf{Lượng tử hóa}
+
+Để hàm trường là hàm vô hướng thực:
+\begin{itemize}
+	\item Lagrangian(mật độ Lagrange): vô hướng tự do
+\end{itemize}
+\begin{align}
+	\mathcal{L}=\underset{\text{co 2 chỉ số}}{\dfrac{1}{2}\partial^\mu\phi\partial_\mu\phi}  - \dfrac{1}{2}m^2\phi^2
+\end{align}
+Phương trình chuyển động:
+\begin{align}
+	\dfrac{\partial\mathcal{L}}{\partial\phi(x)} - \partial_\mu \left[\dfrac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right] = 0\label{eq2}
+\end{align}
+trong đó:
+\begin{align*}
+	\dfrac{\partial\mathcal{L}}{\partial\phi}&= -m^2\phi\\
+	\dfrac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}&=2\dfrac{1}{2}\partial^\mu\phi = \partial^\mu\phi
+\end{align*}
+Thế vô \hyperref[eq2]{(2)} $\Rightarrow$:
+\begin{align}
+	-m^2\phi - \partial_\mu(\partial^\mu\phi) = 0 \nonumber\\
+	(\square + m^2)\phi(x) = 0,\label{eq3}
+\end{align}
+phương trình \hyperref[eq3]{(3)} là phương trình Klein-Gordon, mục tiêu là đi tìm nghiệm của \hyperref[eq3]{(3)} thông qua phép biến đổi Fourier 4D:
+\begin{align}
+	\phi(x) = \int \dfrac{d^4k}{(2\pi)^4}\tilde{\phi}(k) e^{-ikx}, \label{eq4}
+\end{align}
+thay \hyperref[eq4]{(4)} vào \hyperref[eq3]{(3)}:
+\begin{align*}
+	(\square + m^2)\int \dfrac{d^4k}{(2\pi)^4}\tilde{\phi}(k) e^{-ikx}= 0
+\end{align*}
+trong đó:
+\begin{align*}
+	\partial_\mu(e^{-ikx}) =\dfrac{\partial}{\partial x^\mu}(e^{-ik_\mu x^\mu})
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
