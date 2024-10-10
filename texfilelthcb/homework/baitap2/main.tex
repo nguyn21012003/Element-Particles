@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+
+\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,bbold}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{BTVN 2}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+
+Chứng minh $\displaystyle\sum_{s=1}^{2} v_{\vec{k}}^{(s)} \bar{v}_{k}^{(s)} = -\slashed{k} + m $
+\begin{align*}
+	RHS 
+	&= \sqrt{E_{\vec{k}} + m } 
+	\begin{pmatrix}
+		\frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(s)} \\
+		\chi^{(s)}
+	\end{pmatrix}
+	\sqrt{E_{\vec{k}} + m }
+	\begin{pmatrix}
+		\frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(r)^{\dagger} } &\chi^{(r)^{\dagger} } 
+	\end{pmatrix}\gamma^0 \\
+	&= 	(E_{\vec{k}} + m)
+	\begin{pmatrix}
+		\frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(s)} \\
+		\chi^{(s)}
+	\end{pmatrix}
+	\begin{pmatrix}
+		\frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(r)^{\dagger} } &-\chi^{(r)^{\dagger} } 
+	\end{pmatrix} \\
+	&=(E_{\vec{k}} + m)
+	\begin{pmatrix}
+		\frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(s)} \frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(r)^{\dagger} } & - \frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(s)}\chi^{(r)^{\dagger} } \\
+		\chi^{(s)} \frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m } \chi^{(r)^{\dagger} } & -\chi^{(s)}\chi^{(r)^{\dagger}}
+	\end{pmatrix}\\
+	&=(E_{\vec{k}} + m)
+	\begin{pmatrix}
+		 \frac{k^2}{(E_{\vec{k}} + m)^2 } \mathbb{1}_{2\times2}\delta_{s,r} & - \frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m} \mathbb{1}_{2\times2}\delta_{s,r} \\
+		 \frac{\vec{k}\vec{\sigma}}{E_{\vec{k}} + m}\mathbb{1}_{2\times2}\delta_{s,r} & -\mathbb{1}_{2\times2}\delta_{s,r}
+	\end{pmatrix}\\
+	&=
+	\begin{pmatrix}
+	\frac{k^2}{E_{\vec{k}} + m} & -\vec{k}\vec{\sigma} \\
+		\vec{k}\vec{\sigma} & -E_{\vec{k}} - m
+	\end{pmatrix}
+	\otimes \mathbb{1}_{2\times2}\\
+	& = E_{\vec{k}} 
+	\begin{pmatrix}
+		1 & 0\\
+		0 & -1
+	\end{pmatrix} \otimes \mathbb{1}_{2\times2} 
+	- m\begin{pmatrix}
+		1 & 0\\
+		0 & 1
+	\end{pmatrix} \otimes \mathbb{1}_{2\times2}  
+	+ \vec{k} \begin{pmatrix}
+		0 & -\vec{\sigma}\\
+		\vec{\sigma} & 0
+	\end{pmatrix}\otimes \mathbb{1}_{2\times2}\\
+	& = E_{\vec{k}} \gamma^0 - \vec{k}\vec{\gamma} - m \\
+	& = \slashed{k} - m
+\end{align*}
+	
+	
+\end{document}
