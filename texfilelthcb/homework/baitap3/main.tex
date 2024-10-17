@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}
+\usepackage{commath}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed,cancel}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{nccmath}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,bbold}
+\usepackage{hyperref}
+\usepackage{bm,physics}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+
+\newcommand{\image}[1]{
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{pic/#1}
+	\end{center}
+}
+\renewcommand{\l}{\ell}
+\newcommand{\dps}{\displaystyle}
+
+\newcommand{\f}[2]{\dfrac{#1}{#2}}
+\newcommand{\at}[2]{\bigg\rvert_{#1}^{#2} }
+\renewcommand{\baselinestretch}{2.0}
+
+
+
+\title{\Huge{BTVN3}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={LTHCB},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+\textbf{Câu 1:} Xét Lagrangian:
+\begin{align}
+	\mathcal{L} = \overline{\psi} (i \gamma^{\mu} \partial_{\mu} - m ) \psi - \f{1}{4} F_{\mu\nu}F^{\mu\nu}
+\end{align}
+Thực hiện phép biến đổi:
+\begin{align}
+	\begin{cases}
+		\psi(x)\rightarrow\psi'=e^{ie\alpha}\psi(x)                                   \\
+		\overline{\psi}(x)\rightarrow\overline{\psi}'=e^{-ie\alpha}\overline{\psi}(x) \\
+	\end{cases}
+\end{align}
+với $\alpha \notin x$. Thay $\psi', \overline{\psi}' $ vào $\mathcal{L}$
+\begin{align*}
+	\mathcal{L} & =\overline{\psi}(i\gamma^\mu\partial_\mu-m)\psi-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                 \\
+	            & =e^{-ie\alpha}\overline{\psi}(x)(i\gamma^\mu\partial_\mu-m)e^{ie\alpha}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                  \\
+	            & =e^{-ie\alpha}\overline{\psi}(x)i\gamma^\mu\partial_\mu e^{ie\alpha}\psi(x)-me^{-ie\alpha}\overline{\psi}(x)e^{ie\alpha}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} \\
+	            & =e^{-ie\alpha}\overline{\psi}(x)i\gamma^\mu e^{ie\alpha}\partial_\mu\psi(x)-me^{-ie\alpha}\overline{\psi}(x)e^{ie\alpha}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} \\
+	            & =\overline{\psi}(x)i\gamma^\mu\partial_\mu\psi(x)-m\overline{\psi}(x)\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                    \\
+	            & =\overline{\psi}(i\gamma^\mu\partial_\mu-m)\psi-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                 \\
+	            & =\mathcal{L}
+\end{align*}
+Vậy Lagrangian $\mathcal{L}$ bất biến dưới phép biến đổi (2)
+
+\textbf{Câu 2:} Xét Lagrangian (1), thực hiện phép biến đổi:
+\begin{align}
+	\begin{cases}
+		\psi(x)\rightarrow\psi'=e^{ie\alpha(x)}\psi(x)                                   \\
+		\overline{\psi}(x)\rightarrow\overline{\psi}'=e^{-ie\alpha(x)}\overline{\psi}(x) \\
+	\end{cases}
+\end{align}
+\begin{align*}
+	\Rightarrow
+	\mathcal{L} & =\bar{\psi}(i\gamma^\mu\partial_\mu-m)\psi-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                                                                       \\
+	            & =e^{-ie\alpha(x)}\bar{\psi}(x)(i\gamma^\mu\partial_\mu-m)e^{ie\alpha(x)}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                                  \\
+	            & =e^{-ie\alpha(x)}\bar{\psi}(x)i\gamma^\mu\partial_\mu e^{ie\alpha(x)}\psi(x)-me^{-ie\alpha(x)}\bar{\psi}(x)e^{ie\alpha(x)}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                \\
+	            & =e^{-ie\alpha}\bar{\psi}(x)i\gamma^\mu \left[ie\partial_\mu\alpha(x)e^{ie\alpha(x)}\psi+e^{ie\alpha(x)}\partial_\mu\psi(x)\right]-me^{-ie\alpha}\bar{\psi}(x)e^{ie\alpha}\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu} \\
+	            & =e^{-ie\alpha}\bar{\psi}(x)i\gamma^\mu ie\partial_\mu\alpha(x)e^{ie\alpha(x)}\psi(x)+e^{-ie\alpha}\bar{\psi}(x)i\gamma^\mu e^{ie\alpha(x)}\partial_\mu\psi-me^{-ie\alpha}\bar{\psi}(x)e^{ie\alpha}\psi(x)        \\
+	            & -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                                                                                                                 \\
+	            & =-e\bar{\psi}(x)\gamma^\mu\partial_\mu\alpha\psi(x)+\bar{\psi}(x)i\gamma^\mu\partial_\mu\psi(x)-m\bar{\psi}(x)\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                            \\
+	            & =\mathcal{L}-e\bar{\psi}\gamma^\mu\partial_\mu\alpha\psi(x)
+\end{align*}
+Vậy Lagrangian $\mathcal{L}$ không bất biến dưới phép biến đổi (3)
+
+\textbf{Câu 3:} Sử dụng Lagrangian ở (1), thực hiện $\partial_\mu \rightarrow \mathcal{D}_\mu=\partial_\mu+ieA_\mu $
+\begin{align*}
+	\Rightarrow \mathcal{L} =\bar{\psi}(x)\left[i\gamma^\mu(\partial_\mu+ieA_\mu)-m\right]\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{align*}
+Thực hiện các phép biến đổi:
+\begin{align}
+	\begin{cases}
+		\psi(x)       & \rightarrow\psi(x)'=e^{ie\alpha(x)}\psi(x)              \\
+		\bar{\psi}(x) & \rightarrow\bar{\psi}(x)'=e^{-ie\alpha(x)}\bar{\psi}(x) \\
+		A_\mu         & \rightarrow A_\mu'=A_\mu-\partial_\mu\alpha(x)
+	\end{cases}
+\end{align}
+\begin{align*}
+	\mathcal{L} & = \bar{\psi}(x)\left[i\gamma^\mu(\partial_\mu+ieA_\mu)-m\right]\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                    \\
+	            & = i\bar{\psi}(x)\gamma^\mu\partial_\mu\psi(x)-e\bar{\psi}(x)\gamma^\mu A_\mu\psi(x)-m\bar{\psi}(x)\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{align*}
+Thay $\psi'(x), \bar{\psi}(x)',A'_\mu$  vào Lagrangian, ``ngầm'' hiểu rằng $\alpha = \alpha(x), \psi = \psi(x	)$:
+\begin{align*}
+	\mathcal{L} & = e^{-ie\alpha}\bar{\psi}\left[i\gamma^\mu\left(\partial_\mu + ie A_\mu - ie \partial_\mu\alpha\right)-m\right] e^{ie\alpha}\psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                                                     \\
+	            & = i e^{-ie\alpha}\bar{\psi} \gamma^\mu \partial_\mu e^{ie\alpha} \psi  - e e^{-ie\alpha}\bar{\psi} \gamma^\mu A_\mu e^{ie\alpha} \psi + e e^{-ie\alpha}\bar{\psi} \gamma^\mu \partial_\mu \alpha e^{ie\alpha} \psi                                                                    \\
+	            & - m e^{-ie\alpha}\bar{\psi} \gamma^\mu e^{ie\alpha} \psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                                                                                                                                                             \\
+	            & = \left[ie^{-ie\alpha}\bar{\psi}\gamma^\mu(ie \psi  e^{ie\alpha} \partial_\mu\alpha + e^{ie\alpha}\partial_\mu\psi)\right] - e\left[ \bar{\psi} \gamma^\mu \left(A_\mu - \partial_\mu \alpha \right)\psi \right] - m \bar{\psi} \gamma^\mu \psi -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} (*).
+\end{align*}
+Tiếp tục khai triển số hạng cuối:
+\begin{align*}
+	\frac{1}{4}F_{\mu\nu}F^{\mu\nu} = \left[ (\partial_\mu A_{\nu} - \partial_\nu A_{\mu} ) (\partial^\mu A^{\nu} - \partial^\nu A^{\mu} ) \right],
+\end{align*}
+thay $A_\mu = A'_\mu$:
+\begin{align*}
+	LHS
+	 & =\frac{1}{4}\left\{\left[\partial_\mu(A_\nu-\partial_\nu\alpha)-\partial_\nu(A_\mu-\partial_\mu\alpha)\right]\left[\partial^\mu(A^\nu-\partial^\nu\alpha)-\partial^\nu(A^\mu-\partial^\mu\alpha)\right]\right\}                                            \\
+	 & = \frac{1}{4}\left[\partial_\mu A_\nu - \partial_\mu\partial_\nu\alpha - \partial_\nu A_\mu - \partial_\nu \partial_\mu\alpha\right]\left[\partial^\mu A^\nu - \partial^\mu\partial^\nu\alpha - \partial^\nu A^\mu - \partial^\nu\partial^\mu\alpha\right]
+\end{align*}
+thay vào Lagrangian (*), ta được:
+\begin{align*}
+	 & =-e\bar{\psi}(x)\gamma^\mu\partial_\mu\alpha(x)\psi(x)+i\bar{\psi}(x)\gamma^\mu\partial_\mu\psi(x)-e\bar{\psi}(x)\gamma^\mu A_\mu \psi(x)+e\bar{\psi}(x)\gamma^\mu\partial_\nu\alpha(x)\psi(x) \\
+	 & \qquad-m\bar{\psi}(x)\psi(x)-\frac{1}{4}\left[\left(\partial_\mu A_\nu-\partial_\nu A_\mu\right)\left(\partial^\mu A^\nu-\partial^\nu A^\mu\right)\right]                                      \\
+	 & =i\bar{\psi}(x)\gamma^\mu\partial_\mu\psi(x)-e\bar{\psi}(x)\gamma^\mu A_\mu \psi(x) -m\bar{\psi}(x)\psi(x)-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}                                                     \\
+	 & =\mathcal{L}.
+\end{align*}
+Vậy dưới phép biến đổi (4), Lagrangian $\mathcal{L}$ là bất biến.
+
+\textbf{Ý nghĩa vật lý của $\partial_\mu \rightarrow \mathcal{D}_\mu=\partial_\mu+ieA_\mu $ và phép biến đối (4)}
+
+Xét thành phần Larangian tự do $\mathcal{L}_0 = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$. Phương trình Euler - Lagrange có dạng:
+\begin{align*}
+	\partial_\mu A^{\mu\nu} (x) = 	\partial_\mu \left[ \partial_\mu A^{\nu}(x) - \partial^\nu A^{\mu}(x) \right] = 0
+\end{align*}
+Phương trình trên bất biến với phép biến Gauge:
+\begin{align*}
+	A_\mu          \rightarrow A_\mu'=A_\mu-\partial_\mu\alpha(x)
+\end{align*}
+$A_\mu$ không phải là đại lượng quan sát được và xác định không duy nhất. Lúc đó phải chọn thêm điều kiện để thu được $A_\mu$. Điều kiện đó gọi là điều kiện cố định Gauge (Gauge fixing condition). Thông thường là Gauge Coulomb và Gauge Lorentz.
+
+
+
+\textbf{Câu 4: Xây dựng Lagrangian tương tác cho trường vô hướng thức \& spinor}\\
+Bắt đầu với Lagrangian $\mathcal{L}$
+\begin{align}
+	\mathcal{L} = \mathcal{L}_{Dirac} + \mathcal{L}_{Klein - Gordon} + \mathcal{L}_{int} \;,
+\end{align}
+Trong đó, ta đi xây dựng Lagrangian tương tác $\mathcal{L}_{int}$ như sau:
+\begin{align}
+	\mathcal{L}_{int} = \sum_{n=1}^{N} \f{\lambda}{n!}(\bar{\psi}\psi\phi)
+\end{align}
+với $\phi$ là trường vô hướng,  $\bar{\psi}\psi$ là tích vô hướng của trường spinor.
+
+Để kiểm chứng tính đúng đắn của Lagrangian tương tác, ta phải kiểm chứng 5 tính chất của Lagrangian tương tác:
+\begin{itemize}
+	\item Vì $\lambda$ là hằng số, $\phi$ là trường vô hướng,  $\bar{\psi}\psi$ là tích vô hướng của trường spinor( vô hướng Lorentz ), nên Lagrangian $\mathcal{L}_{int}$ là bất biến dưới phép biến đổi Lorentz.
+	\item $\mathcal{L}_{int}$ không phụ thuộc hiển vào $x^{\mu},x_{\mu}$ nên $\mathcal{L}_{int}$ là bất biến dưới phép biến đổi tịnh tiến.
+	\item $\mathcal{L}_{int}$ $\subset$ tích của các hàm trường cùng 1 điểm không thời gian nên $\mathcal{L}_{int}$ thỏa mãn Causality.
+	\item Dạng đầy đủ của Lagrangian $\mathcal{L}_{int}$:
+\end{itemize}
+
+\begin{align}
+	\mathcal{L}=\frac{1}{2}\partial_\mu\phi\partial^\mu\phi-\frac{1}{2}m^2\phi^2+i\bar{\psi}\gamma^\mu\partial_\mu\psi-m\bar{\psi}\psi+\sum_{n=1}^{N}\frac{\lambda}{n!}(\bar{\psi}\psi\phi)^n
+\end{align}
+Điều kiện tái chuẩn hóa cho Lagrangian $\mathcal{L}_{int}$:
+\begin{align}
+	\int d^4 x \mathcal{L}_{int}
+\end{align}
+Khảo xát thứ nguyên của (8):
+\begin{equation}
+	\begin{split}
+		[S]&=0\\
+		[d^4]&=M^{-4}\\
+		\Rightarrow	[\mathcal{L}]&=M^4\\
+		\left[m^2\phi^2\right]&=M^4\\
+		\Rightarrow[\phi]&=M^1\\
+		\left[m\bar{\psi}\psi\right]&=M^4\\
+		\Rightarrow[\psi]&=M^{\frac{3}{2}}\\
+	\end{split}
+\end{equation}
+$\Rightarrow\left[(\bar{\psi}\psi\phi)^n\right]=(\frac{3}{2}+\frac{3}{2}+1)\times n=4n$. Bởi vì thứ nguyên của  $\mathcal{L}_{int}$ phải là 4, so sánh với các số hạng khác, nên $n$ phải bằng $1$.
+\begin{itemize}
+	\item Thỏa tính đối xứng trong
+\end{itemize}
+Vậy ta có thể xây dựng Lagrangian đầy đủ:
+\begin{align}
+	\mathcal{L}=\frac{1}{2}\partial_\mu\phi\partial^\mu\phi-\frac{1}{2}m^2\phi^2+i\bar{\psi}\gamma^\mu\partial_\mu\psi-m\bar{\psi}\psi + \lambda(\bar{\psi}\psi\phi)^n
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
