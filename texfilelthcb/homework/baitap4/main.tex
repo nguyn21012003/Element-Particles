@@ -1,0 +1,200 @@
+\documentclass[14Pt]{report}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{fontsize}
+\changefontsize[14pt]{14pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst,parskip}
+\setlength{\parindent}{2em}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+%\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[LE,LO]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{HẠT CƠ BẢN \\ BÀI TẬP TUẦN 6}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={HCB},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+
+\definecolor{mycolor}{RGB}{255,0,0}
+
+\begin{document}
+	\author{TRẦN KHÔI NGUYÊN}
+	
+	\maketitle
+
+	\noindent Ta đã chứng minh được $$G_\mu'=S_G G_\mu S_G^\dagger-\frac{1}{ig}(\partial_\mu S_G) S_G^\dagger$$
+	tuy nhiên, khi tham khảo một số tài liệu khác, $G_\mu'$ được viết:$$G_\mu'=S_G G_\mu S_G^\dagger-\frac{i}{g}(\partial_\mu S_G) S_G^\dagger.$$
+	\\
+	\textbf{Chứng minh$-\frac{1}{4}F_{\mu\nu}^A F^{A,\mu\nu}$ bất biến} \\
+	\\
+	Ta có phép biến đổi gauge: $$S_G\equiv exp\left[-ig\sum T^a\alpha^a(x)\right],$$
+	và giao hoán tử:
+	\begin{equation}
+		\left[D_\mu,D_\nu\right]=-igF_{\mu\nu}=-igF_{\mu\nu}^at^a.\\
+	\end{equation}
+	Ta có: 
+	\begin{align}
+	D_\mu\psi \rightarrow (\partial_\mu-igG'_\mu)\psi'&=(\partial_\mu-igG'_\mu)S_G\psi(x)\nonumber\\
+	&=S_G\partial_\mu\psi(x)+(\partial_\mu S_G)\psi(x)-igG'_\mu S_G\psi(x) \nonumber\\
+	&=S_G\partial_\mu\psi(x)+S_GS_G^\dagger(\partial_\mu S_G)\psi(x)-igS_GS_G^\dagger G'_\mu S_G\psi(x)\nonumber\\
+	&=S_G\left(\partial_\mu+S_G^\dagger(\partial_\mu S_G)-igS_G^\dagger G'_\mu S_G\right)\psi(x)\nonumber\\
+	&=S_GD_\mu\psi(x).
+	\end{align}
+	Dễ thấy, đạo hàm hiệp biến cũng biến đổi dưới phép đổi xứng gauge giống như hàm $\psi(x)$, như vậy, đạo hàm của chúng cũng thế.
+	Ta có phép biến đổi gauge cho giao hoán tử của đạo hàm hiệp biến:
+	\begin{align}
+		\left[D_\mu,D_\nu\right]\psi\rightarrow (\left[D_\mu,D_\nu\right]\psi)'&=S_G(\left[D_\mu,D_\nu\right]\psi) \nonumber\\
+		&=S_G(-igF_{\mu\nu}^at^a\psi)\nonumber\\
+		&=-igF_{\mu\nu}'\psi'\nonumber\\
+		&=-igF_{\mu\nu}'S_G\psi.
+	\end{align}
+	Vì $\psi$ là hàm bất kỳ, nên ta có
+	$$S_GF_{\mu\nu}=F_{\mu\nu}'S_G$$
+	$$\implies F_{\mu\nu}'=S_GF_{\mu\nu}S_G^\dagger.$$
+	Số hạng $-\frac{1}{4}F_{\mu\nu}^AF^{A,\mu\nu}$ (còn được gọi là số hạng động năng bất biến gauge cho trường đối xứng gauge $A_mu$) được biến đổi:
+	\begin{equation}
+		\begin{split}
+			-\frac{1}{2}TrF_{\mu\nu}F^{\mu\nu}	
+			&=-\frac{1}{2}F_{\mu\nu}^AF^{B,\mu\nu}Tr\left[T^AT^B\right]\\
+			&=-\frac{1}{2}F_{\mu\nu}^AF^{B,\mu\nu}Tr\frac{1}{2}\delta^{AB}\\
+			&=-\frac{1}{4}F_{\mu\nu}^AF^{A,\mu\nu}.\\
+		\end{split}
+	\end{equation}
+	mà ta thấy rằng $TrF_{\mu\nu}F^{\mu\nu}$ bất biến dưới phép biến đổi trên $F_{\mu\nu}'=S_GF_{\mu\nu}S_G^\dagger$, nên $-\frac{1}{4}F_{\mu\nu}^AF^{A,\mu\nu}$ bất biến gauge.
+	\textbf{Đi tìm dạng của $F_{\mu\nu}$}
+	Ta khai triển:
+	\begin{equation}
+		\begin{split}
+			-igF_{\mu\nu}\psi&=\left[D_\mu,D_\nu\right]\psi\\
+			&=\left[\partial_\mu-igG_\mu,\partial_\nu-igG_\nu\right]\psi\\
+			&=\left[\partial_\mu,\partial_\nu\right]\psi-ig\left[G_\mu,\partial_\nu\right]\psi-ig\left[\partial_\mu,G_\nu\right]\psi-g^2\left[G_\mu,G_\nu\right]\psi\\
+			&=0-ig\left[G_\mu\partial_\nu\psi-\partial_\nu(G_\mu\psi)\right]-ig\left[\partial_\mu(G_\nu\psi)-G_\nu(\partial_\mu\psi)\right]-g^2\left[G_\mu,G_\nu\right]\psi\\
+			&=-ig\left[-(\partial_\nu G_\mu)\psi+(\partial_\mu G_\nu)\psi\right]-g^2\left[G_\mu,G_\nu\right]\psi\\
+			\implies -igF_{\mu\nu}&=-ig\left[(\partial_\mu G_\nu)-(\partial_\nu G_\mu)\right]\psi-g^2\left[G_\mu,G_\nu\right]\psi\\
+		\end{split}
+	\end{equation}
+	Vì hàm $\psi$ là hàm bất kỳ, ta có: 
+	$$F_{\mu\nu}=(\partial_\mu G_\nu)-(\partial_\nu G_\mu)-ig\left[G_\mu,G_\nu\right]$$
+	Và ta cũng đã biết:
+	\begin{itemize}
+		\item $G_\mu \equiv G_\mu^AT^A$
+		\item $F_{\mu\nu} \equiv F_{\mu\nu}^AT^A$
+		\item $\left[T^A,T^B\right]=if^{ABC}T^C$
+		\item Giao hoán tử ở số hạng cuối:
+		\begin{equation}
+			\begin{split}
+				\left[G_\mu,G_\nu\right]
+				&=	G_\mu^AT^AG_\nu^BT^B-G_\nu^BT^B	G_\mu^AT^A\\
+				&=G_\mu^AG_\nu^BT^AT^B-G_\nu^BG_\mu^AT^BT^A\\
+				&=G_\mu^AG_\nu^B\left[T^A,T^B\right]
+			\end{split}
+		\end{equation}
+		do $G_\mu^A$ là số hoặc hàm, nên có thể giao hoán với $T^A$ là các ma trận.
+	\end{itemize}
+	Thế vào $F_{\mu\nu}$, ta có:
+	\begin{equation}
+		\begin{split}
+			F_{\mu\nu}^AT^A&=(\partial_\mu G_\nu)-(\partial_\nu G_\mu)-ig\left[G_\mu,G_\nu\right]\\
+			&=\partial_\mu (G_\nu^AT^B)-\partial_\nu(G_\mu^AT^A)-igG_\mu^AG_\nu^B\left[T^A,T^B\right]\\
+			&=T^B\partial_\mu G_\nu^A-T^A\partial_\nu G_\mu^A-igG_\mu^AG_\nu^Bif^{ABC}T^C\\
+		\end{split}
+	\end{equation}
+	Vậy $$	F_{\mu\nu}^A=\partial_\mu G_\nu^A-\partial_\nu G_\mu^A+gG_\mu^AG_\nu^Bf^{ABC}$$
+	có dạng trùng với phương trình 15.49 trong Perskin.
+	
+	Tóm tắt lại, ta có:
+	\begin{itemize}
+		\item $\Psi\rightarrow\Psi'=S_G\Psi$
+		\item $\bar{\Psi}\rightarrow\bar{\Psi}'=\bar{\Psi}S_G^\dagger$
+		\item $G_\mu\rightarrow G_\mu'=S_GG_\mu S_G^\dagger-\frac{\textbf{i}}{\textbf{g}}(\partial_\mu S_G)S_G^\dagger$
+		\item $\left[\gamma^\mu,S_G\right]=\left[\gamma^\mu,S_G^\dagger\right]=0$
+		\item $S_G^\dagger S_G=\mathcal{I}$ (có vẻ hiển nhiên)
+	\end{itemize}
+	Ta xét lại Lagrangian:
+	$\mathcal{L}=\bar{\Psi}(i\gamma^\mu\partial_\mu-m)\Psi$\\
+	Tạm bỏ qua số hạng $-\frac{1}{4}F_{\mu\nu}^aF^{a,\mu\nu}$ vì đã được chứng minh là bất biến ở mục c.
+	\\
+	Thay đạo hàm thường bằng đạo hàm hiệp biến
+	\begin{equation}
+		\begin{split}
+			\mathcal{L}'&=\bar{\Psi}(i\gamma^\mu D_\mu-m)\Psi\\
+			&=\bar{\Psi}[i\gamma^\mu (\partial_\mu-igG_\mu)-m]\Psi\\
+			&=\bar{\Psi}i\gamma^\mu \partial_\mu\Psi+g\Psi\gamma^\mu G_\mu\Psi-m\Psi\bar{\Psi}\\
+		\end{split}
+	\end{equation}
+	Ta cũng bỏ qua số hạng $m\bar{\Psi}\Psi$ vì dễ thấy:
+	\begin{equation}
+		\begin{split}
+			m\bar{\Psi}\Psi&=m\bar{\Psi}S_G^\dagger S_G\Psi\\
+			&=m\bar{\Psi}\Psi
+		\end{split}
+	\end{equation}
+	Thay $\Psi'$, $\bar{\Psi}'$ và $G_\mu'$:
+\begin{align*}
+				\mathcal{L}'&=\bar{\Psi}i\gamma^\mu \partial_\mu\Psi+g\Psi\gamma^\mu G_\mu\Psi\\
+	&=\bar{\Psi}S_G^\dagger i\gamma^\mu \partial_\mu (S_G\Psi)+g\bar{\Psi}S_G^\dagger\gamma^\mu G_\mu  S_G\Psi\\
+	&=\bar{\Psi}S_G^\dagger i\gamma^\mu (\partial_\mu S_G)\Psi+\bar{\Psi}S_G^\dagger i\gamma^\mu S_G\partial_\mu\Psi+g\bar{\Psi}S_G^\dagger\gamma^\mu (S_GG_\mu S_G^\dagger-\frac{i}{g}(\partial_\mu S_G)S_G^\dagger)  S_G\Psi\\
+	&=i\bar{\Psi}S_G^\dagger \gamma^\mu (\partial_\mu S_G)\Psi+\bar{\Psi}S_G^\dagger i\gamma^\mu S_G\partial_\mu\Psi+g\bar{\Psi}S_G^\dagger\gamma^\mu S_GG_\mu S_G^\dagger S_G\Psi-ig\bar{\Psi}S_G^\dagger \gamma^\mu (\partial_\mu S_G)\Psi\\
+	&=\bar{\Psi}S_G^\dagger i\gamma^\mu S_G\partial_\mu\Psi+g\bar{\Psi}S_G^\dagger\gamma^\mu S_GG_\mu S_G^\dagger S_G\Psi\\
+	&=i\bar{\Psi} \gamma^\mu S_G^\dagger S_G\partial_\mu\Psi+g\bar{\Psi}\gamma^\mu S_G^\dagger S_GG_\mu S_G^\dagger S_G\Psi\\
+	&=i\bar{\Psi} \gamma^\mu \mathcal{I}\partial_\mu\Psi+g\bar{\Psi}\gamma^\mu \mathcal{I}G_\mu \mathcal{I}\Psi\\
+	&=i\bar{\Psi} \gamma^\mu \partial_\mu\Psi+g\bar{\Psi}\gamma^\mu G_\mu \Psi
+\end{align*}
+	Ta mang trở lại những số hạng ta đã bỏ qua 
+	\begin{align*}
+		\mathcal{L}'&=i\bar{\Psi} \gamma^\mu \partial_\mu\Psi+g\bar{\Psi}\gamma^\mu G_\mu \Psi-m\bar{\Psi}\Psi-\frac{1}{4}F_{\mu\nu}^aF^{a,\mu\nu}\\
+		&=\bar{\Psi}\left(i\gamma^\mu\partial_\mu-m\right)\Psi-\frac{1}{4}F_{\mu\nu}^aF^{a,\mu\nu}+g\bar{\Psi}\gamma^\mu G_\mu \Psi\\
+		&=\mathcal{L}+g\bar{\Psi}\gamma^\mu G_\mu \Psi
+	\end{align*}
+	Như vậy, ta đã xây dựng $$\mathcal{L}_{int}=g\bar{\Psi}\gamma^\mu G_\mu \Psi$$
+\end{document}
