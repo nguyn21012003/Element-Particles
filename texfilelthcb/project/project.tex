@@ -1,0 +1,291 @@
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}	
+\usepackage{commath}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,nicematrix}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{bm,physics}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+
+\newcommand{\image}[1]{
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{pic/#1}
+	\end{center}
+}
+\renewcommand{\l}{\ell}
+\newcommand{\dps}{\displaystyle}
+
+\newcommand{\f}[2]{\dfrac{#1}{#2}}
+\newcommand{\at}[2]{\bigg\rvert_{#1}^{#2} }
+
+
+\renewcommand{\baselinestretch}{2.0}
+
+
+\title{\Huge{Hạt cơ bản}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=red,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={hcb},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+\newpage
+\subsection*{Review Standard Model}
+\subsection*{Chứng minh công thức đạo hàm kéo dài}
+\begin{align*}
+	D_{\mu}(f) = \partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{w}} \left[ I_{3}^{(f)} - S_{w}^{2} Q^{(f)} \right] Z_{\mu} - ie Q^{(f)} A_{\mu}
+\end{align*}
+trong đó
+\begin{align*}
+	T^{+} =
+	\begin{pNiceMatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pNiceMatrix};\quad \quad
+	T^{-} =
+	\begin{pNiceMatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pNiceMatrix}
+\end{align*}
+Ta xét đạo hàm hiệp biến dưới phép biến đổi sau:
+\begin{align*}
+	\begin{cases}
+		W_{\mu}^{\pm} = \f{W_{\mu}^{1} \mp i W_{\mu}^{2} }{\sqrt{2}}\\
+		\begin{pNiceMatrix}
+			Z_{\mu}\\
+			A_{\mu}
+		\end{pNiceMatrix}
+		=
+		\begin{pNiceMatrix}
+			C_{W} & -S_{W}\\
+			S_{W} & C_{W}
+		\end{pNiceMatrix}
+		\begin{pNiceMatrix}
+			W_{\mu}^{3}\\
+			B_{\mu}
+		\end{pNiceMatrix}
+	\end{cases}
+\end{align*}
+Ta có
+\begin{align*}
+	D_{\mu} 
+	&= \partial_{\mu} - ig \f{\sigma^{a}}{2} W_{\mu}^{a} - ig'\f{Y}{2}B_{\mu}\\
+	&= \partial_{\mu} - \f{ig}{2} \left( \sigma^{1}W_{\mu}^{1} + \sigma^{2}W_{\mu}^{2} + \sigma^{3}W_{\mu}^{3} \right) - ig' \f{Y}{2}B_{\mu}\\
+	&= \partial_{\mu} - \f{ig}{2}
+	\begin{pNiceMatrix}
+		0 & W_{\mu}^{1} - i W_{\mu}^{2}\\
+		W_{\mu}^{1} + i W_{\mu}^{2} & 0 
+	\end{pNiceMatrix}
+	- \f{ig}{2} \sigma^{3}W_{\mu}^{3} - ig' \f{Y}{2} B_{\mu}\\
+	&= \partial_{\mu} - \f{ig}{\sqrt{2}} 
+	\begin{pNiceMatrix}
+		0 & W_{\mu}^{+}\\
+		W_{\mu}^{-} & 0
+	\end{pNiceMatrix}
+	- \f{ig}{2}\
+\end{align*}
+\subsection*{Viết Lagrange cho quá trình phân rã sau}
+\begin{align*}
+	W^{\pm} \rightarrow \tau \overline{\nu_{\tau}}
+\end{align*}
+
+Ta có Lagrange cho mô hình chuẩn tổng quát miêu tả toàn bộ quá trình
+\begin{align*}
+	\mathcal{L} = \overline{\psi} \left( i\slashed{\partial} - m \right) \psi - \f{1}{4}F^{\mu\nu}F_{\mu\nu}
+\end{align*}
+thay $\psi = \Psi$ là các đa tuyến, ta được
+\begin{align*}
+	\mathcal{L}
+	 & = i \overline{L}^{i} \slashed{D} L^{i} + i \overline{Q_{L}}^{i} \slashed{D} Q_{L}^{i} + i \overline{E_{R}}^{i} \slashed{D} E_{R}^{i} + i \overline{U_{L}}^{i} \slashed{D} U_{L}^{i} + i \overline{D_{L}}^{i} \slashed{D} D_{L}^{i} \\
+	 & - \f{1}{4}G^{a \, \mu\nu}G_{\mu\nu}^{a} - \f{1}{4}W^{a \, \mu\nu}W_{\mu\nu}^{a} - \f{1}{4}B^{a \, \mu\nu}B_{\mu\nu}^{a}
+\end{align*}
+mà quá trình phân rã $W^{\pm} \rightarrow \tau \overline{\nu_{\tau}}$, thành phần phải có là  $\tau,\nu_{\tau}$. Ta có
+\begin{align*}
+	\mathcal{L} \supset \mathcal{L}_{W^{\pm} \rightarrow \tau \nu_{\tau}} = i \overline{L}^{3} \slashed{D} L^{3} = i \overline{L}^{3} \gamma^{\mu} D_{\mu} L^{3}, \tag{1}
+\end{align*}
+trong đó
+\begin{align*}
+	D_{\mu}(f) \propto \partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) \tag{2}
+\end{align*}
+và $m = 0$.	Thay (2) vào (1), ta được
+\begin{align*}
+	\mathcal{L}_{W^{\pm} \rightarrow \tau \nu_{\tau}}
+	 & \subset i \overline{L}^{3} \gamma^{\mu} \left[\partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)\right] L^{3}                                         \\
+	 & \subset i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} L^{3} - i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3} \\
+	 & \subset - i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3}                                                      \\
+	 & \subset - i
+	\begin{pNiceMatrix}
+		\overline{\tau} & \overline{\nu_{\tau}}
+	\end{pNiceMatrix}
+	\gamma^{\mu}\partial_{\mu}ig \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)
+	\begin{pNiceMatrix}
+		\tau \\
+		\nu_{\tau}
+	\end{pNiceMatrix}
+\end{align*}
+Xét $\left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)$
+\begin{align*}
+	\left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)
+	 & =
+	\begin{pNiceMatrix}
+		0           & W_{\mu}^{+} \\
+		W_{\mu}^{-} & 0
+	\end{pNiceMatrix}
+\end{align*}
+Ta có
+\begin{align*}
+	\mathcal{L}_{W^{\pm} \rightarrow \tau \nu_{\tau}}
+	 & \subset \slashed{\partial} g (\overline{\tau} W_{\mu}^{+}\nu_{\tau}  + \overline{\nu_{\tau}}W_{\mu}^{-}\tau ).
+\end{align*}
+\subsection*{Tính số hạng khối lượng $M_{h}$}
+Ta có Lagrange cho trường Higgs
+\begin{align*}
+	\mathcal{L}_{\text{Higgs}} = \left( D^{\mu}\phi \right)^{\dagger} \left( D_{\mu}\phi \right) - V(\phi), \tag{1}
+\end{align*}
+trong đó
+\begin{align*}
+	\phi = \f{1}{\sqrt{2}}
+	\begin{pNiceMatrix}
+		0 \\
+		v + h(x)
+	\end{pNiceMatrix}
+\end{align*}
+và
+\begin{align*}
+	V              & = -\mu^{2} \abs{\phi}^{2} + \lambda \abs{\phi}^{4}, \\
+	\abs{\phi}^{2} & = \phi^{\dagger} \phi.
+\end{align*}
+Khai triển thế $V$ ta được
+\begin{align*}
+	V
+	 & = -\mu^{2} \phi^{\dagger} \phi + \lambda \left(\phi^{\dagger} \phi\right)^{2}                                                                                      \\
+	 & = -\f{\mu^{2}}{2}
+	\begin{pNiceMatrix}
+		0 & v + h(x)
+	\end{pNiceMatrix}
+	\begin{pNiceMatrix}
+		0 \\
+		v + h(x)
+	\end{pNiceMatrix}
+	+ \Biggl[
+		\begin{pNiceMatrix}
+			0 & v + h(x)
+		\end{pNiceMatrix}
+		\begin{pNiceMatrix}
+			0 \\
+			v + h(x)
+		\end{pNiceMatrix}
+	\Biggr]^{2}                                                                                                                                                           \\
+	 & = -\f{\mu^{2}}{2} \left(v^{2} + h^{2}(x) + 2vh(x) \right) + \lambda \left(v^{2} + h^{2}(x) + 2vh(x)\right)^{2}                                                     \\
+	 & = -\f{\mu^{2}}{2} \left(v^{2} + h^{2}(x) + 2vh(x)\right) + \lambda \left( v^{4} + h^{4}(x) + 4 v^{2}h^{2}(x) + 2 v^{2}h^{2}(x) + 2 v^{3}h(x) + 4 vh^{3}(x) \right) \\
+\end{align*}
+Khối lượng $M_{h}$ là hệ số đứng trước số hạng $h^{2}(x)$, ta có
+\begin{align*}
+	M_{h} = -\f{\mu^{2}}{2} + 6\lambda v^{2},
+\end{align*}
+trong đó với $v = \sqrt{\f{\mu^{2}}{\lambda}}$.
+
+\subsection*{Viết Lagrange tương tác cho $hZ_{\mu}Z^{\mu}, hhZ_{\mu}Z^{\mu}$ }
+
+Xét
+\begin{align*}
+	\mathcal{L_{\text{Higgs}}} \supset \left( D^{\mu}\phi \right)^{\dagger} \left( D_{\mu}\phi \right)
+\end{align*}
+trong đó
+\begin{align*}
+	D_{\mu}(f)
+	 & \supset - \f{ig}{C_{W}}I_{3} Z_{\mu}
+\end{align*}
+Ta có
+\begin{align*}
+	\mathcal{L_{\text{Higgs}}}
+	 & \supset \left(- \f{ig}{C_{W}} \right)^{2}
+	\Bigg[
+	I_{3} Z_{\mu}
+	\begin{pNiceMatrix}
+		0 \\
+		\frac{1}{\sqrt{2}}(v + h(x))
+	\end{pNiceMatrix}^{\dagger}
+	I_{3} Z^{\mu}
+	\begin{pNiceMatrix}
+		0 \\
+		\frac{1}{\sqrt{2}}(v + h(x))
+	\end{pNiceMatrix}
+	\Bigg]                                                                                                                         \\
+	 & \supset
+	\left(- \f{ig}{C_{W}} \right)^{2}
+	\Bigg[
+		\begin{pNiceMatrix}
+			0 & -\frac{1}{{2\sqrt{2}}}(v + h(x))
+		\end{pNiceMatrix}
+		\begin{pNiceMatrix}
+			0 \\
+			-\frac{1}{{2\sqrt{2}}}(v + h(x))
+		\end{pNiceMatrix}
+		Z_{\mu}
+		Z^{\mu}
+	\Bigg]                                                                                                                         \\
+	 & \supset \left(- \f{ig}{C_{W}} \right)^{2} \left[ \f{1}{8} \left( v^{2} + 2vh(x) + h^{2}(x) \right) \right] Z_{\mu}Z^{\mu}   \\
+	 & \supset \f{1}{8}\left(- \f{ig}{C_{W}} \right)^{2} \left( v^{2}Z_{\mu}Z^{\mu} + 2vhZ_{\mu}Z^{\mu} + hhZ_{\mu}Z^{\mu} \right)
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
