@@ -91,40 +91,98 @@ trong đó
 Ta xét đạo hàm hiệp biến dưới phép biến đổi sau:
 \begin{align*}
 	\begin{cases}
-		W_{\mu}^{\pm} = \f{W_{\mu}^{1} \mp i W_{\mu}^{2} }{\sqrt{2}}\\
+		W_{\mu}^{\pm} = \f{W_{\mu}^{1} \mp i W_{\mu}^{2} }{\sqrt{2}} \\
 		\begin{pNiceMatrix}
-			Z_{\mu}\\
+			Z_{\mu} \\
 			A_{\mu}
 		\end{pNiceMatrix}
 		=
 		\begin{pNiceMatrix}
-			C_{W} & -S_{W}\\
+			C_{W} & -S_{W} \\
 			S_{W} & C_{W}
 		\end{pNiceMatrix}
 		\begin{pNiceMatrix}
-			W_{\mu}^{3}\\
+			W_{\mu}^{3} \\
 			B_{\mu}
 		\end{pNiceMatrix}
 	\end{cases}
 \end{align*}
 Ta có
 \begin{align*}
-	D_{\mu} 
-	&= \partial_{\mu} - ig \f{\sigma^{a}}{2} W_{\mu}^{a} - ig'\f{Y}{2}B_{\mu}\\
-	&= \partial_{\mu} - \f{ig}{2} \left( \sigma^{1}W_{\mu}^{1} + \sigma^{2}W_{\mu}^{2} + \sigma^{3}W_{\mu}^{3} \right) - ig' \f{Y}{2}B_{\mu}\\
-	&= \partial_{\mu} - \f{ig}{2}
+	D_{\mu}
+	 & = \partial_{\mu} - ig \f{\sigma^{a}}{2} W_{\mu}^{a} - ig'\f{Y}{2}B_{\mu}                                                                \\
+	 & = \partial_{\mu} - \f{ig}{2} \left( \sigma^{1}W_{\mu}^{1} + \sigma^{2}W_{\mu}^{2} + \sigma^{3}W_{\mu}^{3} \right) - ig' \f{Y}{2}B_{\mu} \\
+	 & = \partial_{\mu} - \f{ig}{2}
 	\begin{pNiceMatrix}
-		0 & W_{\mu}^{1} - i W_{\mu}^{2}\\
-		W_{\mu}^{1} + i W_{\mu}^{2} & 0 
+		0                           & W_{\mu}^{1} - i W_{\mu}^{2} \\
+		W_{\mu}^{1} + i W_{\mu}^{2} & 0
 	\end{pNiceMatrix}
-	- \f{ig}{2} \sigma^{3}W_{\mu}^{3} - ig' \f{Y}{2} B_{\mu}\\
-	&= \partial_{\mu} - \f{ig}{\sqrt{2}} 
+	- \f{ig}{2} \sigma^{3}W_{\mu}^{3} - ig' \f{Y}{2} B_{\mu}                                                                                   \\
+	 & = \partial_{\mu} - \f{ig}{\sqrt{2}}
 	\begin{pNiceMatrix}
-		0 & W_{\mu}^{+}\\
+		0           & W_{\mu}^{+} \\
 		W_{\mu}^{-} & 0
 	\end{pNiceMatrix}
-	- \f{ig}{2}\
+	- \f{ig}{2}\sigma^{3}W_{\mu}^{3} - ig' \f{Y}{2} B_{\mu} \tag{1}
 \end{align*}
+mà
+\begin{align*}
+	\begin{cases}
+		g' = g t_{W} \\
+		T_{3}L^{i} = \f{\sigma^{3}}{2}L^{i}
+	\end{cases}
+\end{align*}
+thay vào (1) ta được
+\begin{align*}
+	D_{\mu} = \partial_{\mu} - \f{ig}{\sqrt{2}}
+	\Bigg[
+		\begin{pNiceMatrix}
+			0 & 1 \\
+			0 & 0
+		\end{pNiceMatrix}
+		W_{\mu}^{+}
+		+
+		\begin{pNiceMatrix}
+			0 & 0 \\
+			1 & 0
+		\end{pNiceMatrix}
+		W_{\mu}^{-}
+		\Bigg]
+	-ig I_{3}\left( C_{W} Z_{\mu} + S_{W} A_{\mu} \right) - ig t_{W} \f{Y}{2} \left( C_{W} A_{\mu} - S_{W} Z_{\mu} \right)
+\end{align*}
+với
+\begin{align*}
+	T^{+}
+	\begin{pNiceMatrix}
+		0 & 1 \\
+		0 & 0
+	\end{pNiceMatrix} \\
+	T^{-}
+	\begin{pNiceMatrix}
+		0 & 0 \\
+		1 & 0
+	\end{pNiceMatrix}
+\end{align*}
+\begin{align*}
+	\rightarrow D_{\mu} = \partial_{\mu} - \f{ig}{\sqrt{2}} \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - ig \left( I_{3} C_{W} - \f{Y}{2} \f{S_{W}^{2}}{C_{W}}\right) - ig S_{W} \left( I_{3} + \f{Y}{2}  \right) A_{\mu}
+\end{align*}
+Theo hệ thức Gell-Mann-Nishijima
+\begin{align*}
+	Q = I_{3} + \f{Y}{2}  \Rightarrow \f{Y}{2} = Q - I_{3}
+\end{align*}
+Ta có 
+\begin{align*}
+	D_{\mu} 
+	&= \partial_{\mu} - \f{ig}{\sqrt{2}} \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{W}} \left[ I_{3} C_{W}^{2} - \left( Q - I_{3} \right) S_{W}^{2} \right] Z_{\mu} - ig S_{W} \left( I_{3} - Q + I_{3} \right) A_{\mu}\\
+	&= \partial_{\mu} - \f{ig}{\sqrt{2}} \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{W}}\left( I_{3} - QS_{W}^{2} \right)Z_{\mu} - igS_{W}Q A_{\mu}
+\end{align*}
+ta đặt $e = g S_{W} = g' C_{W}$.
+Nên ta có
+\begin{align*}
+	D_{\mu} = \partial_{\mu} - \f{ig}{\sqrt{2}} \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{W}} \left( I_{3} - Q S_{W}^{2} \right) Z_{\mu} - ie Q A_{\mu}
+\end{align*}
+
+
 \subsection*{Viết Lagrange cho quá trình phân rã sau}
 \begin{align*}
 	W^{\pm} \rightarrow \tau \overline{\nu_{\tau}}
@@ -218,13 +276,18 @@ Khai triển thế $V$ ta được
 		\end{pNiceMatrix}
 	\Biggr]^{2}                                                                                                                                                           \\
 	 & = -\f{\mu^{2}}{2} \left(v^{2} + h^{2}(x) + 2vh(x) \right) + \lambda \left(v^{2} + h^{2}(x) + 2vh(x)\right)^{2}                                                     \\
-	 & = -\f{\mu^{2}}{2} \left(v^{2} + h^{2}(x) + 2vh(x)\right) + \lambda \left( v^{4} + h^{4}(x) + 4 v^{2}h^{2}(x) + 2 v^{2}h^{2}(x) + 2 v^{3}h(x) + 4 vh^{3}(x) \right) \\
+	 & = -\f{\mu^{2}}{2} \left(v^{2} + h^{2}(x) + 2vh(x)\right) + \lambda \left( v^{4} + h^{4}(x) + 4 v^{2}h^{2}(x) + 2 v^{2}h^{2}(x) + 2 v^{3}h(x) + 4 vh^{3}(x) \right)
 \end{align*}
-Khối lượng $M_{h}$ là hệ số đứng trước số hạng $h^{2}(x)$, ta có
+Khối lượng $M_{h}$ là hệ số đứng trước số hạng $\f{1}{2}h^{2}(x)$, ta có
 \begin{align*}
-	M_{h} = -\f{\mu^{2}}{2} + 6\lambda v^{2},
+	M_{h}^{2} 
+	&= -2\mu^{2} + 6\lambda v^{2} \\
+	&= -2\mu^{2} + 6\lambda \f{u^{2}}{\lambda}
 \end{align*}
-trong đó với $v = \sqrt{\f{\mu^{2}}{\lambda}}$.
+nên ta có khối lượng của Higgs là
+\begin{align*}
+	M_{\text{Higgs}} = \mu\sqrt{2}
+\end{align*}
 
 \subsection*{Viết Lagrange tương tác cho $hZ_{\mu}Z^{\mu}, hhZ_{\mu}Z^{\mu}$ }
 
