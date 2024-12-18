@@ -4,6 +4,7 @@
 \usepackage{anyfontsize,fontsize}
 \changefontsize[13pt]{13pt}	
 \usepackage{commath}
+\usepackage[d]{esvect}
 \usepackage{parskip}
 \usepackage{xcolor}
 \usepackage{amssymb}
@@ -71,6 +72,216 @@
 \maketitle
 \newpage
 \subsection*{Review Standard Model}
+\subsubsection*{Four-vector \& hàm sóng}
+Vector phản biến
+\begin{align*}
+	x^{\mu} = (t,x,y,z) = (t,\mathbf{x}) \\
+	p^{\mu} = (E, p_x , p_y , p_z) = (E , \mathbf{p}).
+\end{align*}
+
+Vector hiệp biến
+\begin{align*}
+	x_{\mu} &= (t,-x,-y,-z) = (t,-\mathbf{x}) \\
+	p_{\mu} &= (E, -p_x , -p_y , -p_z) = (E , -\mathbf{p}).
+\end{align*}
+
+Đạo hàm hiệp biến
+\begin{align*}
+	\partial_{\mu} = \left( \f{\partial}{\partial t}; \f{\partial}{\partial x} , \f{\partial}{\partial y} , \f{\partial}{\partial z} \right)
+\end{align*}
+
+Hàm sóng Fermion
+\begin{align*}
+	\psi(\mathbf{x},t) = u (E,\mathbf{p}) e^{(i\mathbf{px} -Et)} = u(p) e^{-i p x}.
+\end{align*}
+\subsubsection*{Trường}
+\begin{enumerate}
+	\item[(a)] Trường vô hướng: Xét $\Phi(x)$ là trường vô hướng thực. Ta thực hiện phép biến đổi Lorentz:
+	\begin{align*}
+		\mathcal{L} =: x^{\mu} \rightarrow x^{'\mu} = \Delta_{\nu}^{\mu}x^{\nu}.
+	\end{align*} 
+	Và biểu diễn của nhóm Lorentz tác động lên trường vô hướng thực:
+	\begin{align*}
+		\Phi(x) = \Phi_{a}^{'}(x') = M_{ab}(\Delta) \Phi_{b}(x).
+	\end{align*}
+	Trong đó, biểu diễn nhóm $M_{ab}(\Delta)$ có dạng:
+	\begin{itemize}
+		\item $I$ đối với trường vô hướng (scarlar field $s = 0$).
+		\item $e^{\frac{1}{4} \sum^{\mu\nu} \omega_{\mu\nu}}$ với $\sum^{\mu\nu} = \left[\gamma^{\mu}, \gamma^{\nu} \right]$ đối với trường spinor ($s = \f{1}{2}$).
+		\item  $\Delta_{\nu}^{\mu}$ đối với trường vector ($s = 1,3/2 ,2 ,..$)
+	\end{itemize}
+	Lagrangian có dạng:
+	\begin{align*}
+		\mathcal{L} = \f{1}{2} \partial^{\mu} \Phi \partial_{\mu} \Phi - \f{1}{2} m^{2} \Phi^{2} \tag{1}
+	\end{align*}
+	và có thể có các số hạng tự tương tác bậc cao $\alpha \Phi^{3} ,...$\\
+	Phương trình chuyển động(Phương trình Euler-Lagrange)
+	\begin{align*}
+		\f{\partial\mathcal{L}}{\partial\Phi} -\partial_{\mu} \left( \f{\partial \mathcal{L}}{\partial(\partial \Phi)} \right) = 0.
+	\end{align*}
+	Phương trình Klein-Gordon.
+	\begin{align*}
+		(\square + m^{2}) \Phi = 0
+	\end{align*}
+	có nghiệm là
+	\begin{align*}
+		\Phi = \int \f{d^{3} \mathbf{k}}{(2\pi)^{3/2}} \f{1}{\sqrt{2\omega+{\vv{k}}}} \left( a_{\vv{k}}e^{ -i \omega_{\vv{k}t + i \vv{k}\vv{x}}} + a_{\vv{k}}^{\ast} e^{ i \omega_{\vv{k}t - i \vv{k}\vv{x}} } \right)
+	\end{align*}
+	Lượng tử hóa, định nghĩa xung lượng liên hợp
+	\begin{align*}
+		\pi(x) = \dot{\phi}(x) = i \int \f{d^{3}}{(2\pi)^{3}} \sqrt{\f{\omega_{\vv{k}}}{2}} \left( - a_{\vv{k}} e^{ -i \omega_{\vv{k}} t + i \vv{k} \vv{x} } + a_{\vv{k}}^{*} e^{ i \omega_{\vv{k}} t - i \vv{k} \vv{x} } \right)
+	\end{align*}
+	Giao hoán tử
+	\begin{align*}
+		\left[\Phi,\Pi\right] = i \delta(\vv{x} - \vv{y})
+	\end{align*}
+	\item [(b)] Trường vector\\
+	Hàm trường
+	\begin{align*}
+		A_{\mu} = \phi_{,} - \vv{A} \quad \quad ; A^{\mu} = \left( \phi , \vv{A}\right).
+	\end{align*}
+	Tensor trường vector:
+	\begin{align*}
+		F_{\mu\nu} = \partial_{\mu} A_{\nu} - \partial_{\nu} A_{\mu}.
+	\end{align*}
+	Lagrangian 
+	\begin{align*}
+		\mathcal{L} = -\f{1}{4} F_{\mu\nu} F^{\mu\nu}.
+	\end{align*}
+	Phương trình chuyển động
+	\begin{align*}
+		\partial_{\rho} F^{\sigma} = 0
+	\end{align*}
+	\item[c] Trường spinor\\
+	Hàm trường
+	\begin{align*}
+		\psi(x) =
+		\begin{pNiceMatrix}
+			\psi(x)_{1}\\
+			\psi(x)_{2}\\
+			\psi(x)_{3}\\
+			\psi(x)_{4}
+		\end{pNiceMatrix}
+	\end{align*}
+	Lagrangian
+	\begin{align*}
+		\mathcal{L} = i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi - m \bar{\psi} \psi.
+	\end{align*}
+\end{enumerate}
+\subsubsection*{Toán tử chiếu}
+\begin{align*}
+	P_{L} = \f{1 - \gamma^{5}}{2}\\	
+	P_{R} = \f{1 + \gamma^{5}}{2}	
+\end{align*}
+với các tính chất
+\begin{itemize}
+	\item $P^{2} = P$
+	\item $P_{L} + P_{R} = 1$
+	\item $P_{L}P_{R} = 0$
+\end{itemize}
+\subsubsection*{Nhóm Gauge}
+\begin{align*}
+	SU(3)_{C} \times SU(2)_{L} \times U(1)_{Y} 
+\end{align*}
+trong đó
+\begin{itemize}
+	\item $SU(3)_{C}$ là các tương tác mạnh thông qua 8 gluon $G^{a}$($a = 1..8$)
+	\item $SU(2)$ lầ các tương tác yếu thông qua 3 gauge bosons
+	\begin{align*}
+		W^{\pm} = \f{1}{\sqrt{2}} (W^{1} \mp i W^{2}) ; \quad \quad W^{3}
+	\end{align*}
+	\item $U(1)$ là các tương tác điện từ thông qua bởi duy một gauge boson là $B$
+\end{itemize}
+\subsubsection*{Thế hệ hạt}
+\begin{align*}
+\begin{array}{l@{\hspace{1.5cm}}l@{\hspace{1.5cm}}l@{\hspace{1.5cm}}l}
+	\text{first generation} & \text{second generation} & \text{third generation} & \text{each quark} \\[0.2cm]
+	\left(
+	\begin{array}{c}
+		u_L \\ d_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		u_R \\
+		d_R
+	\end{array}
+	&
+	\left(
+	\begin{array}{c}
+		c_L \\ s_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		c_R \\
+		s_R
+	\end{array}
+	&
+	\left(
+	\begin{array}{c}
+		t_L \\ b_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		t_R \\
+		b_R
+	\end{array}
+	&
+	q = \left(
+	\begin{array}{c}
+		q_r \\ q_g \\ q_b
+	\end{array}
+	\right) \\[0.5cm]
+	\left(
+	\begin{array}{c}
+		\nu_{eL} \\ e_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		\nu_{eR}(?) \\
+		e_R
+	\end{array}
+	&
+	\left(
+	\begin{array}{c}
+		\nu_{\mu L} \\ \mu_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		\nu_{\mu R}(?) \\
+		\mu_R
+	\end{array}
+	&
+	\left(
+	\begin{array}{c}
+		\nu_{\tau L} \\ \tau_L
+	\end{array}
+	\right)
+	\hspace{0.2cm}
+	\begin{array}{l}
+		\nu_{\tau R}(?) \\
+		\tau_R
+	\end{array}
+	&
+\end{array}
+\end{align*}
+\subsubsection*{Lagrangian của mô hình chuẩn}
+\begin{align*}
+	\mathcal{L}
+	& = i \overline{L}^{i} \slashed{D} L^{i} + i \overline{Q_{L}}^{i} \slashed{D} Q_{L}^{i} + i \overline{E_{R}}^{i} \slashed{D} E_{R}^{i} + i \overline{U_{L}}^{i} \slashed{D} U_{L}^{i} + i \overline{D_{L}}^{i} \slashed{D} D_{L}^{i} \\
+	& - \f{1}{4}G^{a \, \mu\nu}G_{\mu\nu}^{a} - \f{1}{4}W^{a \, \mu\nu}W_{\mu\nu}^{a} - \f{1}{4}B^{\mu\nu}B_{\mu\nu}.
+\end{align*}
+trong đó
+\begin{align*}
+	D_{\mu}(f) 
+	&= \partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{w}} \left[ I_{3}^{(f)} - S_{w}^{2} Q^{(f)} \right] Z_{\mu} - ie Q^{(f)} A_{\mu}\\
+	F_{\mu\nu}^{a} &= \partial_{\mu} A_{\nu}^{a} - \partial_{\nu} A_{\mu}^{a} + g f^{abc} A_{\mu}^{b} A_{\nu}^{c}
+\end{align*}
+
 \subsection*{Chứng minh công thức đạo hàm kéo dài}
 \begin{align*}
 	D_{\mu}(f) = \partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) - \f{ig}{C_{w}} \left[ I_{3}^{(f)} - S_{w}^{2} Q^{(f)} \right] Z_{\mu} - ie Q^{(f)} A_{\mu}
@@ -196,7 +407,7 @@ thay $\psi = \Psi$ là các đa tuyến, ta được
 \begin{align*}
 	\mathcal{L}
 	 & = i \overline{L}^{i} \slashed{D} L^{i} + i \overline{Q_{L}}^{i} \slashed{D} Q_{L}^{i} + i \overline{E_{R}}^{i} \slashed{D} E_{R}^{i} + i \overline{U_{L}}^{i} \slashed{D} U_{L}^{i} + i \overline{D_{L}}^{i} \slashed{D} D_{L}^{i} \\
-	 & - \f{1}{4}G^{a \, \mu\nu}G_{\mu\nu}^{a} - \f{1}{4}W^{a \, \mu\nu}W_{\mu\nu}^{a} - \f{1}{4}B^{a \, \mu\nu}B_{\mu\nu}^{a}
+	 & - \f{1}{4}G^{a \, \mu\nu}G_{\mu\nu}^{a} - \f{1}{4}W^{a \, \mu\nu}W_{\mu\nu}^{a} - \f{1}{4}B^{\mu\nu}B_{\mu\nu}
 \end{align*}
 mà quá trình phân rã $W^{\pm} \rightarrow \tau \overline{\nu_{\tau}}$, thành phần phải có là  $\tau,\nu_{\tau}$. Ta có
 \begin{align*}
@@ -210,13 +421,13 @@ và $m = 0$.	Thay (2) vào (1), ta được
 \begin{align*}
 	\mathcal{L}_{W^{\pm} \rightarrow \tau \nu_{\tau}}
 	 & \subset i \overline{L}^{3} \gamma^{\mu} \left[\partial_{\mu} - i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)\right] L^{3}                                         \\
-	 & \subset i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} L^{3} - i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3} \\
-	 & \subset - i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3}                                                      \\
+	 & \subset i \overline{L}^{3} \gamma^{\mu} \partial_{\mu} L^{3} - i \overline{L}^{3} \gamma^{\mu} i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3} \\
+	 & \subset - i \overline{L}^{3} \gamma^{\mu}  i g \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right) L^{3}                                                      \\
 	 & \subset - i
 	\begin{pNiceMatrix}
 		\overline{\tau} & \overline{\nu_{\tau}}
 	\end{pNiceMatrix}
-	\gamma^{\mu}\partial_{\mu}ig \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)
+	\gamma^{\mu}ig \left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)
 	\begin{pNiceMatrix}
 		\tau \\
 		\nu_{\tau}
@@ -234,7 +445,7 @@ Xét $\left( T^{+} W_{\mu}^{+} + T^{-} W_{\mu}^{-} \right)$
 Ta có
 \begin{align*}
 	\mathcal{L}_{W^{\pm} \rightarrow \tau \nu_{\tau}}
-	 & \subset \slashed{\partial} g (\overline{\tau} W_{\mu}^{+}\nu_{\tau}  + \overline{\nu_{\tau}}W_{\mu}^{-}\tau ).
+	 & \subset  g (\overline{\tau} W_{\mu}^{+}\nu_{\tau}  + \overline{\nu_{\tau}}W_{\mu}^{-}\tau ).
 \end{align*}
 \subsection*{Tính số hạng khối lượng $M_{h}$}
 Ta có Lagrange cho trường Higgs
@@ -266,7 +477,7 @@ Khai triển thế $V$ ta được
 		0 \\
 		v + h(x)
 	\end{pNiceMatrix}
-	+ \Biggl[
+	+ \lambda\Biggl[
 		\begin{pNiceMatrix}
 			0 & v + h(x)
 		\end{pNiceMatrix}
